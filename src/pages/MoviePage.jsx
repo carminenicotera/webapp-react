@@ -9,7 +9,7 @@ export default function MoviePage() {
   const api_url = import.meta.env.VITE_API_URL
 
   useEffect(() => {
-    fetch(`${api_url}/movies/${movieId}`)
+    fetch(`${api_url}/api/movies/${movieId}`)
       .then(res => res.json())
       .then(data => setMovie(data))
       .catch(err => console.error("Errore fetch:", err))
@@ -21,25 +21,26 @@ export default function MoviePage() {
   }
 
   return (
-    <div>
-      <h1>{ movie.title }</h1>
-      <img src={ movie.image } alt={ movie.title } />
-      <p>Regista: { movie.director }</p>
-      <p>Anno: { movie.release_year }</p>
-      <p>Genere: { movie.genre }</p>
-      <p>Trama: { movie.abstract }</p>
-
-      <hr />
-
-      <h3>Recensioni</h3>
-      { movie.reviews?.map(review => (
-        <div key={ review.id }>
-          <p>Utente: { review.name }</p>
-          <p>Voto: { review.vote }</p>
-          <p>Testo: { review.text }</p>
-          <br />
+    <>
+      <div className="container-fluid bg-light">
+        <div className="row align-items-md-stretch">
+          <div className="col-md-6">
+            <div className="h-100 p-5 text-white" >
+              <img src={ movie?.image } alt={ movie?.title } />
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="h-100 p-5">
+              <h2>{ movie?.title }</h2>
+              <div className="card-text">Director: { movie?.director }</div>
+              <div className="card-text">Release Year: { movie?.release_year }</div>
+              <p className="lead">{ movie?.abstract }</p>
+            </div>
+          </div>
         </div>
-      )) }
-    </div>
+      </div>
+
+
+    </>
   )
 }
