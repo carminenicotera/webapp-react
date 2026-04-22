@@ -23,7 +23,7 @@ export default function AppHeader() {
                   <span className="visually-hidden">(current)</span></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Link</a>
+                <a className="nav-link" href="#">Admin</a>
               </li>
             </ul>
           </div>
