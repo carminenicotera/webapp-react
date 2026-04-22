@@ -1,10 +1,12 @@
+import { NavLink } from "react-router-dom";
+
 export default function AppHeader() {
 
   return (
     <>
       <nav className="navbar navbar-expand-sm navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Movie Reviews</a>
+          <NavLink to="/" className="navbar-brand">Movie Reviews</NavLink>
           <button
             className="navbar-toggler d-lg-none"
             type="button"
@@ -18,12 +20,10 @@ export default function AppHeader() {
           <div className="collapse navbar-collapse" id="collapsibleNavId">
             <ul className="navbar-nav ms-auto mt-2 mt-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" href="#" aria-current="page">
-                  Home
-                  <span className="visually-hidden">(current)</span></a>
+                <NavLink to="/" className="nav-link">Home</NavLink>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Admin</a>
+                <NavLink to="/admin" className="nav-link">Admin</NavLink>
               </li>
             </ul>
           </div>

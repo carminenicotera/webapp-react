@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function MovieCard({ movie }) {
-
-
+  
   return (
     <div className="col-12 col-md-6 col-lg-4">
       <div className="card h-100 shadow-sm border-0">
