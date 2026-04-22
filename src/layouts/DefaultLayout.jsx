@@ -8,7 +8,7 @@ export default function DefaultLayout() {
   return (
     <>
       <AppHeader />
-      <main>
+      <main className="min-vh-100">
         <Outlet />
       </main>
       <AppFooter />
