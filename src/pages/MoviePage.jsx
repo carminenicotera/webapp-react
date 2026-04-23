@@ -9,12 +9,14 @@ export default function MoviePage() {
 
   const api_url = import.meta.env.VITE_API_URL
 
-  useEffect(() => {
+  function fetchMovieData() {
     fetch(`${api_url}/api/movies/${movieId}`)
       .then(res => res.json())
       .then(data => setMovie(data))
       .catch(err => console.error("Errore fetch:", err))
-  }, [movieId])
+  }
+
+  useEffect(fetchMovieData, [movieId])
 
   // Se movie è null, mostra un messaggio di caricamento
   if (!movie) {
@@ -88,7 +90,7 @@ export default function MoviePage() {
       <hr />
 
       {/* Form per aggiungere una recensione */ }
-      <ReviewForm />
+      <ReviewForm movieId={ movieId } refreshData={ fetchMovieData } />
     </>
   )
 }
