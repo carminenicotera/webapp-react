@@ -37,3 +37,27 @@
 - Front/Back: Aggiungere il voto medio delle recensioni a ciascun film. La media voto dovra' poi essere mostrata nella pagina del singolo film quindi dovra' essere recuperata dal database cosi che la frontend riceva il dato e possa usarlo
 - Frontend: Predisporre una pagina Admin dove mostrare una tabella con l'elenco dei film
 - Frontend: Aggiungere un form statico alla pagina del singolo film per l'invio di una recensione
+
+
+```
+
+```
+
+## Esercizio
+
+Miglioriamo l’esperienza dell’utente inserendo:
+
+### MILESTONE 1 (BACKEND)
+
+- Predisponiamo un’API per **salvare nel database** una nuova recensione legata ad un film
+- Testiamola su postman e verifichiamo che nel DB venga effettivamente inserita una nuova recensione
+
+### MILESTONE 2 (FRONTEND)
+
+- Creiamo un componente che contenga il form per le recensioni
+- Inseriamo questo componente nella pagina di dettaglio del film
+- All’invio del form, la nuova recensione viene salvata sul database e visualizzata nella pagina, in fondo alle altre
+
+### Bonus
+
+- Inseriamo una validazione nel form di recensione
