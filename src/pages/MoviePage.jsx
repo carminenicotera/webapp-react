@@ -21,25 +21,31 @@ export default function MoviePage() {
     return <div>Caricamento in corso...</div>;
   }
 
+
   return (
     <>
       {/* Banner */ }
       <div className="container-fluid bg-light">
-        <div className="row align-items-md-stretch">
-          <div className="col-md-6">
-            <div className="h-100 p-5 text-white" >
-              <img src={ movie?.image } alt={ movie?.title } />
-            </div>
+        <div className="row align-items-center bg-white g-0"> {/* g-0 toglie spazi vuoti tra colonne */ }
+          <div className="col-md-5 d-flex justify-content-center p-4">
+            { movie.image && (
+              <img
+                src={ `${api_url}/img/${movie.image}` }
+                className="img-fluid rounded-3 shadow-lg"
+                alt={ movie.title }
+                // max-height evita che diventi enorme su schermi grandi
+                style={ { maxHeight: '500px', width: 'auto', display: 'block' } }
+              />
+            ) }
           </div>
-          <div className="col-md-6">
-            <div className="h-100 p-5">
-              <h2>{ movie?.title }</h2>
-              <div className="card-text">Director: { movie?.director }</div>
-              <div className="card-text">Release Year: { movie?.release_year }</div>
-              <p className="lead">{ movie?.abstract }</p>
-            </div>
+          <div className="col-md-7 p-5">
+            <h2 className="display-5 fw-bold">{ movie?.title }</h2>
+            <div className="badge bg-primary mb-3">Director: { movie?.director }</div>
+            <div className="text-muted mb-4">Release Year: { movie?.release_year }</div>
+            <p className="lead border-start ps-4 italic">{ movie?.abstract }</p>
           </div>
         </div>
+
       </div>
 
       {/* Recensioni degli utenti */ }
