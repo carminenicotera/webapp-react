@@ -4,3 +4,20 @@
 body {
   font-family: 'Montserrat Variable', sans-serif;
 }
+
+/* 1. Nasconde l'occhio di default */
+.eye-overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* Evita che l'occhio interferisca con il click */
+}
+
+/* 2. Quando l'utente passa sopra l'immagine: */
+.image-container:hover .movie-img {
+  filter: brightness(0.4); /* Scurisce l'immagine */
+  transition: filter 0.3s ease;
+}
+
+.image-container:hover .eye-overlay {
+  opacity: 1; /* Mostra l'occhio */
+}
