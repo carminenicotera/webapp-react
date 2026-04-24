@@ -10,6 +10,7 @@ export default function ReviewForm({ movieId, refreshData }) {
 
   const [formData, setFormData] = useState(initialFormData)
   const [submissionStatus, setSubmissionStatus] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -38,6 +39,7 @@ export default function ReviewForm({ movieId, refreshData }) {
         }
         if (data.error) {
           setSubmissionStatus('error')
+          setErrorMessage(data.error)
         }
 
       })
@@ -54,8 +56,8 @@ export default function ReviewForm({ movieId, refreshData }) {
           <div className="card shadow-sm border-0 p-4">
             <h3 className="mb-4 text-center">Aggiungi la tua recensione</h3>
 
-            { submissionStatus === 'success' && <div className="alert alert-success">Recensione inviata con successo!</div> }
-            { submissionStatus === 'error' && <div className="alert alert-danger">Si è verificato un errore durante l'invio della recensione. Riprova</div> }
+            { submissionStatus === 'success' && <div className="alert alert-success" role="alert">Recensione inviata con successo!</div> }
+            { submissionStatus === 'error' && <div className="alert alert-danger" role="alert">{errorMessage}</div> }
             <form onSubmit={ handleSubmit }>
 
               {/* Campo Nome */ }

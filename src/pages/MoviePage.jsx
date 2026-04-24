@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ReviewForm from "../components/ReviewForm"
+import ReviewsList from "../components/ReviewsList"
 
 export default function MoviePage() {
 
@@ -49,43 +50,7 @@ export default function MoviePage() {
       </div>
 
       {/* Recensioni degli utenti */ }
-      <section className="container pb-5">
-        <h3 className="mb-4">Recensioni</h3>
-
-        <div className="row g-3">
-          { movie.reviews?.length > 0 ? (
-            movie.reviews.map((review) => (
-              <div className="col-12" key={ review.id }>
-                <div className="card shadow-sm border-0">
-                  <div className="card-body">
-                    <div className="d-flex justify-content-between align-items-center mb-2">
-                      <h5 className="card-title mb-0"><strong>{ review.name }</strong></h5>
-
-                      <div className="rating-display">
-                        { [1, 2, 3, 4, 5].map((starIndex) => (
-                          <span
-                            key={ starIndex }
-                            style={ {
-                              color: starIndex <= review.vote ? "#21d07a" : "#445566",
-                              fontSize: "1.2rem",
-                              marginRight: "2px"
-                            } }
-                          > ★ </span>
-                        )) }
-                      </div>
-                    </div>
-                    <p className="card-text italic">"{ review.text }"</p>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <div className="col-12">
-              <p className="text-muted">Non ci sono ancora recensioni per questo film. Sii il primo a scriverne una!</p>
-            </div>
-          ) }
-        </div>
-      </section>
+      <ReviewsList reviews={ movie?.reviews } />
 
       <hr />
 
