@@ -32,8 +32,8 @@
 
 - Curare l’aspetto estetico della vostra applicazione
 - Frontend: Nella pagina di elenco films, quando l'utente e' in hover sull'immagine del film appare un'icona di un occhio 👁️, cliccando l'immagine si apre una modale con all'interno i dettagli del film completi + il pulsante per visitare il singolo film ✅ 
-- Frontend: Creare componenti riutilizzabili per le card dei film, l'elenco delle recensioni nella pagina del film e la singola recensione (tutto componentizzato)
-- Frontend: Nella pagina di dettaglio del film mostrare le stelline ✨ per indicare il voto al posto del semplice numero (se nn lo avete gia fatto) ✅ 
+- Frontend: Creare componenti riutilizzabili per le card dei film, l'elenco delle recensioni nella pagina del film e la singola recensione (tutto componentizzato) ✅
+- Frontend: Nella pagina di dettaglio del film mostrare le stelline ✨ per indicare il voto al posto del semplice numero (se nn lo avete gia fatto) ✅
 - Front/Back: Aggiungere il voto medio delle recensioni a ciascun film. La media voto dovra' poi essere mostrata nella pagina del singolo film quindi dovra' essere recuperata dal database cosi che la frontend riceva il dato e possa usarlo
 - Frontend: Predisporre una pagina Admin dove mostrare una tabella con l'elenco dei film ✅ 
 - Frontend: Aggiungere un form statico alla pagina del singolo film per l'invio di una recensione ✅ 
