@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import {useGlobalContext} from "../../contexts/GlobalContext"
 
 export default function AdminDashboard() {
 
   const [movies, setMovies] = useState([])
+  const {setIsLoading} = useGlobalContext()
 
   useEffect(() => {
+    setIsLoading(true)
     const api_url = import.meta.env.VITE_API_URL + "/api/movies"
     fetch(api_url)
       .then(res => res.json())
       .then(data => setMovies(data))
       .catch(err => console.error("Errore fetch:", err))
+      .finally(() => {
+        setIsLoading(false)
+      })
   }, [])
 
   return (

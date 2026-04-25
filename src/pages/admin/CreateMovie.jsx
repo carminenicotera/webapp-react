@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // Per riportare l'utente alla lista dopo il salvataggio
+import { useGlobalContext } from "../../contexts/GlobalContext";
 
 export default function CreateMovie() {
   // Stato iniziale per tutti i campi del film
@@ -14,6 +15,7 @@ export default function CreateMovie() {
 
   const [formData, setFormData] = useState(initialFormData);
   const navigate = useNavigate();
+  const { setIsLoading } = useGlobalContext()
 
   // Gestore unico per tutti gli input
   function handleInputChange(e) {
@@ -27,6 +29,7 @@ export default function CreateMovie() {
 
   function handleSubmit(e) {
     e.preventDefault();
+    setIsLoading(true)
     const api_url = import.meta.env.VITE_API_URL
 
     fetch(`${api_url}/api/movies`, {
@@ -40,7 +43,10 @@ export default function CreateMovie() {
         // Dopo la creazione, torna alla dashboard dell'admin
         navigate("/admin");
       })
-      .catch(err => console.error("Errore:", err));
+      .catch(err => console.error("Errore:", err))
+      .finally(() => {
+      setIsLoading(false)
+    })
   }
 
   return (
