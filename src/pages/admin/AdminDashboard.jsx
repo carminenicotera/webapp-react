@@ -54,7 +54,7 @@ export default function AdminDashboard() {
         </div>
 
         {/* inserisco una tabella con tutti i film */ }
-        <div className="card shadow-sm border-0">
+        <div className="card admin-card shadow-sm border-0">
           <div className="table-responsive">
             <table className="table table-hover align-middle mb-0">
               <thead className="table-dark">

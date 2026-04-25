@@ -25,12 +25,9 @@ export default function MovieCard({ movie, onShowModal }) {
             />
           ) }
 
-          {/* 
-              L'overlay dell'occhio ora è gestito via CSS.
-              La classe "eye-overlay" inizialmente è invisibile.
-          */}
-          <div className="eye-overlay position-absolute top-50 start-50 translate-middle text-white">
-            <span style={ { fontSize: '4rem' } }>👁️</span>
+          <div className="eye-overlay position-absolute top-50 start-50 translate-middle text-white text-center">
+            <i className="bi bi-eye" style={ { fontSize: '3rem' } }></i>
+            <p className="fw-bold">Dettagli</p>
           </div>
         </div>
 

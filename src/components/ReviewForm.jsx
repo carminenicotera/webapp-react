@@ -53,7 +53,7 @@ export default function ReviewForm({ movieId, refreshData }) {
     <section className="container py-5">
       <div className="row justify-content-center">
         <div className="col-md-8">
-          <div className="card shadow-sm border-0 p-4">
+          <div className="review-form-card shadow-sm p-4 rounded-4">
             <h3 className="mb-4 text-center">Aggiungi la tua recensione</h3>
 
             { submissionStatus === 'success' && <div className="alert alert-success" role="alert">Recensione inviata con successo!</div> }

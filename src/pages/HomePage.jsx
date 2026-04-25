@@ -75,7 +75,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <div className="modal-footer bg-light">
+              <div className="modal-footer">
                 <button type="button" className="btn btn-secondary" onClick={ () => setSelectedMovie(null) }>Chiudi</button>
                 {/* NAVIGAZIONE: Porta alla pagina singola del film */ }
                 <Link

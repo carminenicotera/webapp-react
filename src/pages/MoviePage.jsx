@@ -36,8 +36,8 @@ export default function MoviePage() {
   return (
     <>
       {/* Banner */ }
-      <div className="container-fluid bg-light">
-        <div className="row align-items-center bg-white g-0">
+      <div className="container-fluid">
+        <div className="row align-items-center g-0">
           <div className="col-md-5 d-flex justify-content-center p-4">
             { movie.image && (
               <img
@@ -51,7 +51,9 @@ export default function MoviePage() {
           <div className="col-md-7 p-5">
             <h2 className="display-5 fw-bold">{ movie?.title }</h2>
             <div className="badge bg-primary mb-3">Director: { movie?.director }</div>
-            <div className="text-muted mb-4">Release Year: { movie?.release_year }</div>
+            <div className="mb-4" style={ { color: '#99aabb' } }>
+              Release Year: <span className="text-white">{ movie?.release_year }</span>
+            </div>
             <p className="lead border-start ps-4 italic">{ movie?.abstract }</p>
           </div>
         </div>
