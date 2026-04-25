@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import MovieCard from "../components/MovieCard"
+import { useGlobalContext } from "../contexts/GlobalContext"
+import AppLoader from "../components/AppLoader"
+import { Link } from "react-router-dom"
 
 export default function HomePage() {
 
@@ -7,12 +10,19 @@ export default function HomePage() {
   const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState(null)
 
+  // Accediamo alla funzione setIsLoading dal contesto globale per poter aggiornare lo stato di caricamento durante le fetch
+  const { setIsLoading } = useGlobalContext()
+
   useEffect(() => {
+    setIsLoading(true) // Inizio caricamento
     const api_url = import.meta.env.VITE_API_URL + "/api/movies"
     fetch(api_url)
       .then(res => res.json())
       .then(data => setMovies(data))
       .catch(err => console.error("Errore fetch:", err))
+      .finally(() => {
+        setIsLoading(false) // Fine caricamento
+      })
   }, [])
 
   return (
@@ -68,7 +78,13 @@ export default function HomePage() {
               <div className="modal-footer bg-light">
                 <button type="button" className="btn btn-secondary" onClick={ () => setSelectedMovie(null) }>Chiudi</button>
                 {/* NAVIGAZIONE: Porta alla pagina singola del film */ }
-                <a href={ `/movies/${selectedMovie.id}` } className="btn btn-primary shadow-sm">Visita Film Completo</a>
+                <Link
+                  to={ `/movies/${selectedMovie.id}` }
+                  className="btn btn-primary shadow-sm"
+                  onClick={ () => setSelectedMovie(null) }
+                >
+                  Visita Film Completo
+                </Link>
               </div>
             </div>
           </div>

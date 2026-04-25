@@ -2,26 +2,34 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import ReviewForm from "../components/ReviewForm"
 import ReviewsList from "../components/ReviewsList"
+import { useGlobalContext } from "../contexts/GlobalContext"
 
 export default function MoviePage() {
 
   const [movie, setMovie] = useState(null)
   const { movieId } = useParams()
+  const { setIsLoading } = useGlobalContext()
 
   const api_url = import.meta.env.VITE_API_URL
 
   function fetchMovieData() {
+    setIsLoading(true)
     fetch(`${api_url}/api/movies/${movieId}`)
       .then(res => res.json())
       .then(data => setMovie(data))
       .catch(err => console.error("Errore fetch:", err))
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
 
-  useEffect(fetchMovieData, [movieId])
+  useEffect(() => {
+    fetchMovieData()
+  }, [movieId])
 
-  // Se movie è null, mostra un messaggio di caricamento
+  // Se movie è null e non ci sono ancora i dati evito il crash
   if (!movie) {
-    return <div>Caricamento in corso...</div>;
+    return null
   }
 
 

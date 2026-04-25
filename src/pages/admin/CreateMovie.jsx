@@ -17,18 +17,19 @@ export default function CreateMovie() {
 
   // Gestore unico per tutti gli input
   function handleInputChange(e) {
-    const { name, value } = e.target;
+    const { name, value, type } = e.target;
     setFormData({
       ...formData,
-      [name]: value
+      // Se l'input è di tipo number, converte il valore in numero
+      [name]: type === "number" ? parseInt(value) : value
     });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    const api_url = `${import.meta.env.VITE_API_URL}/api/movies`;
+    const api_url = import.meta.env.VITE_API_URL
 
-    fetch(api_url, {
+    fetch(`${api_url}/api/movies`, {
       method: "POST",
       body: JSON.stringify(formData),
       headers: { "Content-Type": "application/json" }
