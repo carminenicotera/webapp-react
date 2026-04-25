@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import { createContext, useContext, useState } from "react";
 
 // creo un contesto globale per condividere lo stato di caricamento tra i componenti
