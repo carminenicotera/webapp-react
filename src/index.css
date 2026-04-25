@@ -1,16 +1,22 @@
 @import url('bootstrap');
 @import url('bootstrap-icons');
 
-/* --- 1. STILE GENERALE --- */
-body {
-  font-family: 'Montserrat Variable', sans-serif;
-  background-color: #14181c;
-  /* Sfondo scuro principale */
+/* --- 1. RESET E SFONDO GLOBALE --- */
+html, body, #root, main {
+  background-color: #14181c !important;
   color: #ffffff;
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Montserrat Variable', sans-serif;
 }
 
-/* --- HEADER & NAVBAR --- */
+.container, .container-fluid, .bg-light, .bg-white {
+  background-color: transparent !important;
+}
+
+/* --- 2. HEADER & NAVBAR --- */
 header, .navbar {
   background-color: #1b2228 !important;
   border-bottom: 1px solid #2c3440;
@@ -25,59 +31,39 @@ header, .navbar {
   font-size: 0.9rem;
 }
 
-.nav-link:hover {
-  color: #00e054 !important; 
-}
+.nav-link:hover { color: #00e054 !important; }
 
-/* --- FOOTER --- */
+/* --- 3. FOOTER --- */
 footer {
-  background-color: #1b2228;
+  background-color: #1b2228 !important;
   border-top: 1px solid #2c3440;
   color: #99aabb;
   padding: 60px 0 30px 0;
   margin-top: 50px;
 }
 
-footer h5 {
-  color: #ffffff;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+footer h5 { color: #ffffff; font-weight: bold; }
+footer .fs-4 i:hover { color: #00e054; }
+.footer-bottom { border-top: 1px solid #2c3440; padding-top: 20px; margin-top: 40px; font-size: 0.8rem; }
 
-footer a {
-  color: #99aabb;
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-footer a:hover {
-  color: #00e054;
-}
-
-.footer-bottom {
-  border-top: 1px solid #2c3440;
-  padding-top: 20px;
-  margin-top: 40px;
-  font-size: 0.8rem;
-}
-
-
-/* --- 3. BANNER (HomePage) --- */
+/* --- 4. BANNER (HomePage) --- */
 .bg-light.rounded-3 {
   background: linear-gradient(135deg, #1c232e 0%, #14181c 100%) !important;
   border: 1px solid #2c3440 !important;
   color: #ffffff !important;
 }
 
-.display-5.fw-bold {
-  color: #00e054;
-}
+.display-5.fw-bold { color: #00e054 !important; }
 
-/* --- 4. MOVIE CARDS (HomePage) --- */
+/* --- 5. MOVIE CARDS (HomePage) --- */
 .movie-card {
   background-color: #1c232e !important;
   border: 1px solid #445566 !important;
   transition: all 0.3s ease !important;
+}
+
+.movie-card .card-title {
+  color: #ffffff !important;
 }
 
 .movie-card:hover {
@@ -85,151 +71,64 @@ footer a:hover {
   box-shadow: 0 0 15px rgba(0, 224, 84, 0.2) !important;
 }
 
-.image-container {
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid #2c3440;
-}
+.image-container { position: relative; overflow: hidden; border-bottom: 1px solid #2c3440; }
+.movie-img { transition: transform 0.5s ease, filter 0.3s ease; }
+.image-container:hover .movie-img { filter: brightness(0.3); transform: scale(1.05); }
+.eye-overlay { opacity: 0; transition: opacity 0.3s ease; color: #00e054; z-index: 2; }
+.image-container:hover .eye-overlay { opacity: 1; }
 
-.movie-img {
-  transition: transform 0.5s ease, filter 0.3s ease;
-}
-
-.image-container:hover .movie-img {
-  filter: brightness(0.3);
-  transform: scale(1.05);
-}
-
-.eye-overlay {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  color: #00e054;
-  /* Occhio Verde */
-  z-index: 2;
-}
-
-.image-container:hover .eye-overlay {
-  opacity: 1;
-}
-
-/* --- 5. MOVIE PAGE & DETTAGLI --- */
-.container-fluid.bg-light {
-  background-color: #14181c !important;
-  /* Uniforma lo sfondo esterno */
-}
-
-/* Box dei dettagli del film */
-.row.bg-white.g-0 {
+/* --- 6. MOVIE PAGE & REVIEWS --- */
+.row.bg-white.g-0, .review-item, .review-form-card, .admin-card {
   background-color: #1c232e !important;
   border: 1px solid #2c3440 !important;
   border-radius: 12px !important;
+  color: #ffffff !important;
 }
 
-.italic {
-  color: #99aabb !important;
-  font-style: italic;
-  line-height: 1.7;
-}
+.review-item { border-left: 4px solid #00e054 !important; padding: 20px; margin-bottom: 20px; }
+.italic, .text-muted, .form-label { color: #99aabb !important; }
+.review-name, .review-form-card h3 { color: #00e054 !important; }
 
-/* Colore per testi secondari (es. Release Year) */
-.text-muted {
-  color: #99aabb !important;
-}
+/* --- 7. TABELLA ADMIN --- */
+.table { color: #99aabb !important; }
 
-/* --- 6. REVIEWS (Bolle Recensioni) --- */
-.review-item {
-  background-color: #1c232e;
-  border-left: 4px solid #00e054;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.review-name {
-  color: #00e054;
-  font-weight: bold;
-}
-
-.review-text {
-  color: #ffffff;
-  font-style: italic;
-}
-
-/* --- 7. FORM RECENSIONI (ReviewForm) --- */
-.review-form-card {
+.table th, .table td, .table tr, .table td span, .table td .badge {
   background-color: #1c232e !important;
-  border: 1px solid #2c3440 !important;
-  color: #ffffff;
-  border-radius: 12px;
-}
-
-.review-form-card h3 {
-  color: #00e054;
-}
-
-.review-form-card .form-label {
-  color: #99aabb !important;
-}
-
-/* --- 8. ADMIN DASHBOARD & TABLES --- */
-.admin-card {
-  background-color: #1c232e !important;
-  border: 1px solid #2c3440 !important;
-}
-
-.table {
-  color: #99aabb !important;
+  color: #ffffff !important; 
+  border-bottom: 1px solid #2c3440 !important;
 }
 
 .table thead th {
   background-color: #14181c !important;
   color: #00e054 !important;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  border-bottom: 2px solid #2c3440 !important;
 }
 
-.table-hover tbody tr:hover {
+.table-hover tbody tr:hover td {
   background-color: rgba(255, 255, 255, 0.05) !important;
   color: #ffffff !important;
 }
 
-/* --- 9. INPUTS & FORMS --- */
-.form-control,
-.form-select {
+.table td .badge {
+  background-color: rgba(0, 224, 84, 0.1) !important;
+  color: #00e054 !important; 
+  border: 1px solid rgba(0, 224, 84, 0.3) !important; 
+  padding: 5px 10px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.5px;
+  border-radius: 6px !important;
+}
+
+/* --- 8. INPUTS, FORMS & BUTTONS --- */
+.form-control, .form-select {
   background-color: #2c3440 !important;
   border: 1px solid #445566 !important;
   color: #ffffff !important;
 }
 
-.form-control:focus,
-.form-select:focus {
-  border-color: #00e054 !important;
-  box-shadow: 0 0 0 0.25rem rgba(0, 224, 84, 0.2) !important;
-}
+.form-control:focus { border-color: #00e054 !important; box-shadow: 0 0 0 0.25rem rgba(0, 224, 84, 0.2) !important; }
+::placeholder { color: #667788 !important; opacity: 1; }
 
-/* Colore del placeholder negli input */
-::placeholder {
-  color: #667788 !important;
-  opacity: 1;
-}
-
-/* --- 10. GLOBAL LOADER --- */
-.loader-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(20, 24, 28, 0.9);
-  backdrop-filter: blur(5px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-/* --- 11. BUTTONS --- */
 .btn-primary {
   background-color: #00e054 !important;
   border-color: #00e054 !important;
@@ -237,10 +136,7 @@ footer a:hover {
   font-weight: bold;
 }
 
-.btn-primary:hover {
-  background-color: #00c048 !important;
-  border-color: #00c048 !important;
-}
+.btn-primary:hover { background-color: #00c048 !important; }
 
 .btn-outline-primary {
   color: #00e054 !important;
@@ -250,4 +146,11 @@ footer a:hover {
 .btn-outline-primary:hover {
   background-color: #00e054 !important;
   color: #14181c !important;
+}
+
+/* --- 9. GLOBAL LOADER --- */
+.loader-overlay {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(20, 24, 28, 0.9) !important;
+  backdrop-filter: blur(5px); display: flex; justify-content: center; align-items: center; z-index: 9999;
 }

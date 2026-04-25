@@ -47,7 +47,7 @@ export default function AdminDashboard() {
       {/* admin dashboard */ }
       <div className="container-fluid">
         <div className="d-flex justify-content-between align-items-center mb-4">
-          <h1 className="h2">Admin Dashboard</h1>
+          <h1 className="text-white h2">Admin Dashboard</h1>
           <Link to="/admin/movies/new" className="btn btn-success d-flex align-items-center gap-2">
             <i className="bi bi-plus-lg"></i> Add New Movie
           </Link>
@@ -74,7 +74,7 @@ export default function AdminDashboard() {
                       <td className="ps-4 text-secondary">#{ movie.id }</td>
                       <td className="fw-bold">{ movie.title }</td>
                       <td>{ movie.director }</td>
-                      <td><span className="badge bg-light text-dark border">{ movie.release_year }</span></td>
+                      <td><span className="badge text-dark border">{ movie.release_year }</span></td>
                       <td>
                         <div className="d-flex justify-content-end gap-2 pe-3">
                           <Link to={ `/movies/${movie.id}` } className="btn btn-outline-info btn-sm" title="View details">

@@ -50,15 +50,15 @@ export default function CreateMovie() {
   }
 
   return (
-    <div className="container py-5">
+    <div className="container py-5 min-vh-100">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h1>Add New Movie</h1>
+        <h1 className="text-white">Add New Movie</h1>
         <button className="btn btn-outline-secondary" onClick={ () => navigate("/admin") }>
           Back to List
         </button>
       </div>
 
-      <div className="card shadow-sm border-0 p-4">
+      <div className="card admin-card border-0 p-4 shadow-lg">
         <form onSubmit={ handleSubmit }>
           <div className="row">
             {/* Titolo e Regista (Obbligatori) */ }
